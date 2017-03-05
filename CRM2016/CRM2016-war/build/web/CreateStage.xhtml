@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="resources/defaultTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pm="http://primefaces.org/mobile"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">
+        title
+    </ui:define>
+    <ui:define name="content">  
+        <f:event type="javax.faces.event.PreRenderViewEvent" listener="#{interactionMBean.checkEdition(param.idEntreprise)}"/>
+        <pm:field>
+
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2" bgcolor="#eff5fa">
+
+                    <h:outputLabel value="intitule :" for="contenu" />
+                    <h:inputText  value="#{interactionMBean.stageActuel.intitule}" title="contenu"/>
+
+                    <h:outputLabel value="contenu :" for="contenu" />
+                    <h:inputText value="#{interactionMBean.stageActuel.contenu}" title="contenu"/>
+
+                    <h:outputLabel value="date debut :" for="date" />                    
+                    <h:inputText value="#{interactionMBean.stageActuel.dateDebut}">
+                        <f:convertDateTime pattern="dd/mm/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="date fin :" for="date" />                    
+                    <h:inputText value="#{interactionMBean.stageActuel.dateFin}">
+                        <f:convertDateTime pattern="dd/mm/yyyy" />
+                    </h:inputText>
+
+                    <h:outputLabel value="date signature :" for="date" />                    
+                    <h:inputText value="#{interactionMBean.stageActuel.dateInteraction}">
+                        <f:convertDateTime pattern="dd/mm/yyyy" />
+                    </h:inputText>
+
+                    <h:outputLabel value="lieu :" for="lieu" />                    
+                    <h:inputText value="#{interactionMBean.stageActuel.lieu}">
+                    </h:inputText>
+
+
+                  
+
+
+                    <p:outputLabel for="advanced" value="Etudiant:"  />
+                    <p:selectOneMenu id="advanced" value="#{interactionMBean.stageActuel.etudiant}" converter="myObjectConverter" panelStyle="width:180px"
+                                     effect="fade" var="t" style="width:160px" filter="true" filterMatchMode="startsWith">
+                        <f:selectItems value="#{personneMBean.listeEtudiant}" var="theme" itemLabel="#{theme.numeroEtudiant}" itemValue="#{theme}" />
+
+                        <p:column>
+                            <h:outputText value="#{t.numeroEtudiant}" />
+                        </p:column>
+                        <p:column>
+                            <h:outputText value="#{t.nom}" />
+                        </p:column>
+                        <p:column>
+                            <h:outputText value="#{t.prenom}" />
+                        </p:column>
+                    </p:selectOneMenu>
+
+                    <h:outputLabel value="Entreprise :" for="idEntreprise" > 
+
+
+
+                    </h:outputLabel>
+                    <h:outputLabel value="#{entrepriseMBean.getEntreprise(param.idEntreprise).nom}" >
+
+
+                    </h:outputLabel>
+
+
+                    <h:outputLabel value="Type d'interaction : " >
+
+                    </h:outputLabel>
+                    <h:selectOneMenu value="#{interactionMBean.stageActuel.type}" >
+                        <f:selectItems value="#{interactionMBean.listeType}" />
+                    </h:selectOneMenu>
+
+
+                    <h:outputLabel value="Type de stage : " >
+                    </h:outputLabel>
+                    <h:selectOneMenu value="#{interactionMBean.stageActuel.typeStage}" >
+                        <f:selectItems value="#{interactionMBean.listeTypeStage}" />
+                    </h:selectOneMenu>
+
+
+
+                    <h:commandButton  id="Submit" value="Submit"  action="#{interactionMBean.saveMeStage()}"/>
+
+                </h:panelGrid>
+            </h:form>
+
+        </pm:field>
+
+
+
+
+
+    </ui:define>
+</ui:composition>

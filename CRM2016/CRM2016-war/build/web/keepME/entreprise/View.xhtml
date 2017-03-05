@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EntrepriseViewDlg" widgetVar="EntrepriseViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewEntrepriseTitle}">
+            <h:form id="EntrepriseViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{entrepriseController.selected != null}">
+                        <h:outputText value="#{bundle.ViewEntrepriseLabel_nom}"/>
+                        <h:outputText value="#{entrepriseController.selected.nom}" title="#{bundle.ViewEntrepriseTitle_nom}"/>
+                        <h:outputText value="#{bundle.ViewEntrepriseLabel_adresse}"/>
+                        <h:outputText value="#{entrepriseController.selected.adresse}" title="#{bundle.ViewEntrepriseTitle_adresse}"/>
+                        <h:outputText value="#{bundle.ViewEntrepriseLabel_codePostal}"/>
+                        <h:outputText value="#{entrepriseController.selected.codePostal}" title="#{bundle.ViewEntrepriseTitle_codePostal}"/>
+                        <h:outputText value="#{bundle.ViewEntrepriseLabel_ville}"/>
+                        <h:outputText value="#{entrepriseController.selected.ville}" title="#{bundle.ViewEntrepriseTitle_ville}"/>
+                        <h:outputText value="#{bundle.ViewEntrepriseLabel_description}"/>
+                        <h:outputText value="#{entrepriseController.selected.description}" title="#{bundle.ViewEntrepriseTitle_description}"/>
+                        <h:outputText value="#{bundle.ViewEntrepriseLabel_dateCreation}"/>
+                        <h:outputText value="#{entrepriseController.selected.dateCreation}" title="#{bundle.ViewEntrepriseTitle_dateCreation}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewEntrepriseLabel_id}"/>
+                        <h:outputText value="#{entrepriseController.selected.id}" title="#{bundle.ViewEntrepriseTitle_id}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="EntrepriseViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/keepME/entreprise/List.xhtml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/resources/defaultTemplate.xhtml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/CreateEnterprise.xhtml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/keepME/personne/View.xhtml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/WEB-INF/web.xml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/WEB-INF/beans.xml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/src/java/jsf/util/PaginationHelper.java</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/keepME/entreprise/Create.xhtml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/keepME/personne/Edit.xhtml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/src/java/jsf/InteractionMBean.java</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/interactions.xhtml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/CreateInteraction.xhtml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/keepME/personne/List.xhtml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/src/java/jsf/PersonneMBean.java</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/WEB-INF/faces-config.xml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/src/java/jsf/util/JsfUtil.java</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/index.xhtml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/src/java/jsf/pageViewMBean.java</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/CreateStage.xhtml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/logForm.xhtml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/logInForm.xhtml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/src/java/jsf/MyObjectConverter.java</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/keepME/entreprise/Edit.xhtml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/logOutForm.xhtml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/keepME/convention/Create.xhtml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/src/java/jsf/AdministrateurMBean.java</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/ShowEtudiant.xhtml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/src/java/jsf/EntrepriseMBean.java</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/src/java/Bundle.properties</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/keepME/entreprise/View.xhtml</file>
+            <file>file:/D:/CRM217/CRM2016/CRM2016-war/web/CreateEtudiant.xhtml</file>
+        </group>
+    </open-files>
+</project-private>

@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="resources/defaultTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pm="http://primefaces.org/mobile"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">
+        title
+    </ui:define>
+    <ui:define name="content">  
+
+        <f:event type="javax.faces.event.PreRenderViewEvent" listener="#{interactionMBean.refreshListeFromDatabase(param.idEntreprise)}"/>
+
+
+        <h1>Liste des Etudiants avec #{entrepriseMBean.getEntreprise(param.idEntreprise).nom}</h1>
+        <f:view>
+            <h:form>
+                <p:dataTable id="table" value="#{interactionMBean.getInteraction(param.idEntreprise)}" var="item">
+                   
+                    <p:column sortBy="#{item.dateInteraction}">
+                        <f:facet name="header">
+                            <h:outputText value="DateCreation"/>
+                        </f:facet>
+                        <h:outputText value="#{item.dateInteraction}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                    </p:column>
+
+                    <p:column sortBy="#{item.contenu}">
+                        <f:facet name="header">
+                            <h:outputText value="contenu"/>
+                        </f:facet>
+                        <h:outputText value="#{item.contenu}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="type"/>
+                        </f:facet>
+                        <h:outputText value="#{item.type}"/>
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Edit"/>
+                        </f:facet>
+                        
+                        <h:commandButton  id="delete" disabled="#{interactionMBean.checkAdmin(item)}" value="Delete" action="#{interactionMBean.deleteMe(item.id)}"/>
+                        <h:commandButton  id="edit" disabled="#{interactionMBean.checkAdmin(item)}" value="edit" action="#{interactionMBean.editMe(item)}"/>
+                        
+                    </p:column>
+
+                </p:dataTable>
+            </h:form>
+        </f:view>
+
+
+    </ui:define>  
+
+
+</ui:composition>

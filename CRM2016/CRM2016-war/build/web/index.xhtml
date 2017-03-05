@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>  
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">    
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"  
+                xmlns:ui="http://java.sun.com/jsf/facelets"  
+                xmlns:h="http://java.sun.com/jsf/html"  
+                template="resources/defaultTemplate.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">  
+
+    <ui:define name="complementTitreEtH1">formulaire_</ui:define>  
+
+    <ui:define name="content">  
+
+        <f:event type="javax.faces.event.PreRenderViewEvent" 
+                 listener="#{entrepriseMBean.refreshListeFromDatabase()}"/>
+
+        CRM 2016
+        <h1>Liste des entreprises</h1>
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="List"/></h1>
+                <p:dataTable id="table" value="#{entrepriseMBean.entreprises}" var="item">
+                   
+                   
+
+                    <p:column sortBy="#{item.nom}">
+                        <f:facet name="header">
+                            <h:outputText value="Nom"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nom}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Adresse"/>
+                        </f:facet>
+                        <h:outputText value="#{item.adresse}"/>
+                    </p:column>
+                    <p:column sortBy="#{item.codePostal}">
+                        <f:facet name="header">
+                            <h:outputText value="CodePostal"/>
+                        </f:facet>
+                        <h:outputText value="#{item.codePostal}"/>
+                    </p:column>
+                    <p:column sortBy="#{item.ville}">
+                        <f:facet name="header">
+                            <h:outputText value="Ville"/>
+                        </f:facet>
+                        <h:outputText value="#{item.ville}"/>
+                    </p:column>
+                  
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Interactions"/>
+                        </f:facet>
+                        <h:commandButton value="Voir interactions"
+                                         action="#{entrepriseMBean.voirInteractions(item)}"/>
+                        
+                        <h:commandButton value="Creer interactions" disabled="#{administrateurMBean.canEdit()}"
+                                         action="#{interactionMBean.creeInteractions(item)}"/>
+                        
+                        <h:commandButton value="Creer Stage" disabled="#{administrateurMBean.canEdit()}"
+                                         action="#{interactionMBean.creeStage(item)}"/>
+                         <h:commandButton value="Supprimer entreprise" disabled="#{administrateurMBean.canEdit()}"
+                                          action="#{entrepriseMBean.supprimerEntreprise(item)}"/>
+                        <!--<p:dataTable id="table" value="#{item.interactions}" var="item2">
+                            <p:column sortBy="#{item2.contenu}">
+                                <f:facet name="header">
+                                    <h:outputText value="description"/>
+                                </f:facet>
+                                <h:outputText value="#{item2.contenu}"/>
+                            </p:column>
+                        </p:dataTable>!-->
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </f:view>
+
+
+    </ui:define>  
+
+</ui:composition>  
+

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="resources/defaultTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pm="http://primefaces.org/mobile"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">
+        title
+    </ui:define>
+    <ui:define name="content">  
+        <pm:field>
+   
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2" bgcolor="#eff5fa">
+                    <h:outputLabel value="Nom :" for="nom" />
+                    <h:inputText id="nom" value="#{personneMBean.actuel.nom}" title="nom" required="true" requiredMessage="nom is required."/>
+                    
+                    <h:outputLabel value="Prenom :" for="Adresse" />
+                    <h:inputText id="Adresse" value="#{personneMBean.actuel.prenom}" title="Adresse" required="Adresse" requiredMessage="Adresse is required."/>
+                    
+                    <h:outputLabel value="numéro etudiant :" for="codePostal" />
+                    <h:inputText id="codePostal" value="#{personneMBean.actuel.numeroEtudiant}" title="codePostal" />
+                    
+                   
+                    
+                    <h:commandButton id="Submit" value="Submit" action="#{personneMBean.saveMe()}"/>
+
+                </h:panelGrid>
+            </h:form>
+            
+        </pm:field>
+      
+
+
+         
+
+    </ui:define>
+</ui:composition>

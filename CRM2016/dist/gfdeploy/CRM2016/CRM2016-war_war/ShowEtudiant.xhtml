@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="resources/defaultTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pm="http://primefaces.org/mobile"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">
+        title
+    </ui:define>
+    <ui:define name="content">  
+
+        <h1>Liste des etudiant</h1>
+        <f:view>
+            <h:form>
+                <p:dataTable id="table" value="#{personneMBean.listeEtudiant}" var="item">
+
+                    <p:column sortBy="#{item.nom}">
+                        <f:facet name="header">
+                            <h:outputText value="nom"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nom}">
+                        </h:outputText>
+                    </p:column>
+
+                    <p:column sortBy="#{item.prenom}">
+                        <f:facet name="header">
+                            <h:outputText value="prenom"/>
+                        </f:facet>
+                        <h:outputText value="#{item.prenom}">
+                        </h:outputText>
+                    </p:column>
+                    <p:column sortBy="#{item.numeroEtudiant}">
+                        <f:facet name="header">
+                            <h:outputText value="Numero etudiant"/>
+                        </f:facet>
+                        <h:outputText value="#{item.numeroEtudiant}">
+                        </h:outputText>
+                    </p:column>
+
+                    <p:column sortBy="delete">
+                    <h:commandButton value="Supprimer etudiant" disabled="#{administrateurMBean.canEdit()}"
+                                     action="#{personneMBean.supprimerEtudiant(item)}"/>
+                     </p:column>
+                </p:dataTable>
+            </h:form>
+        </f:view>
+
+
+    </ui:define>  
+
+
+</ui:composition>

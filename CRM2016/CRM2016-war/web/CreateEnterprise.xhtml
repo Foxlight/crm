@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="resources/defaultTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pm="http://primefaces.org/mobile"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">
+        title
+    </ui:define>
+    <ui:define name="content">  
+        <pm:field>
+            <p:outputLabel for="basic" value="Basic:" />
+            <p:inputText id="basic" />
+            <p:outputLabel for="button" value="Button:" />
+            <p:calendar id="button" value="#{calendarView.date3}" showOn="button" />
+            
+            
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2" bgcolor="#eff5fa">
+                    <h:outputLabel value="Nom :" for="nom" />
+                    <h:inputText id="nom" value="#{entrepriseMBean.actuel.nom}" title="nom" required="true" requiredMessage="nom is required."/>
+                    
+                    <h:outputLabel value="Adresse :" for="Adresse" />
+                    <h:inputText id="Adresse" value="#{entrepriseMBean.actuel.adresse}" title="Adresse" required="Adresse" requiredMessage="Adresse is required."/>
+                    
+                    <h:outputLabel value="codePostal :" for="codePostal" />
+                    <h:inputText id="codePostal" value="#{entrepriseMBean.actuel.codePostal}" title="codePostal" />
+                    
+                    <h:outputLabel value="ville:" for="ville" />
+                    <h:inputText id="ville" value="#{entrepriseMBean.actuel.ville}" title="ville" />
+                    
+                    <h:outputLabel value="description :" for="description" />
+                    <h:inputText id="description" value="#{entrepriseMBean.actuel.description}" title="description" />
+             
+                    <h:outputLabel value="date :" for="date" />                    
+                    <h:inputText value="#{entrepriseMBean.actuel.dateCreation}">
+                            <f:convertDateTime pattern="dd/mm/yyyy" />
+                        </h:inputText>
+                    
+                    <h:commandButton id="back" value="Back" immediate="true" action="#{entrepriseMBean.saveMe()}"/>
+                    <h:commandButton id="Submit" value="Submit" action="#{entrepriseMBean.saveMe()}"/>
+
+                </h:panelGrid>
+            </h:form>
+            
+        </pm:field>
+      
+
+
+         
+
+    </ui:define>
+</ui:composition>
